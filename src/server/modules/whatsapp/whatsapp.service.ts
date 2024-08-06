@@ -66,6 +66,7 @@ export class WhatsAppService implements OnModuleInit {
   }
 
   async sendMessage(to: string, message: string): Promise<void> {
+    console.log({ to, message });
     await this.client.sendMessage(to, message);
   }
 
@@ -78,8 +79,10 @@ export class WhatsAppService implements OnModuleInit {
   }
 
   async handleMessageReceive(msg: Message) {
-    const { args, method } = this.commandParser.parseCommand(msg.body);
-    console.log('method', method);
+    const { args, method, ignore } = this.commandParser.parseCommand(
+      msg.body?.toLowerCase(),
+    );
+    if (ignore) return;
     if (!method) {
       msg.react('❔');
       return;

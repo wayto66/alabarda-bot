@@ -11,6 +11,7 @@ export interface IParseCommandResponse {
     msg: Message,
   ) => Promise<string> | null;
   args: string[];
+  ignore?: boolean;
 }
 
 @Injectable()
@@ -29,6 +30,7 @@ export class CommandParser {
       return {
         method: null,
         args: [],
+        ignore: true,
       };
 
     let args = message.trim().split(' ');
