@@ -24,7 +24,6 @@ export class WhatsAppService implements OnModuleInit {
 
       puppeteer: {
         headless: true,
-        executablePath: 'C:/Program Files/Google/Chrome/Application/chrome.exe',
         args: [
           '--no-sandbox',
           '--disable-setuid-sandbox',
