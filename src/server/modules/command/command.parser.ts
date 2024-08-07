@@ -17,12 +17,14 @@ export interface IParseCommandResponse {
 @Injectable()
 export class CommandParser {
   constructor(private readonly commandController: CommandController) {}
-  private commandValidator = 'yin';
+  private commandValidator = 'tera';
 
   private commandStringMap: Record<string, ECommand> = {
     oi: ECommand.HELLO,
     ola: ECommand.HELLO,
     chatid: ECommand.GET_CHAT_ID,
+    registrar: ECommand.REGISTER_CHAT,
+    ajuda: ECommand.HELP,
   };
 
   public parseCommand(message: string): IParseCommandResponse | null {
