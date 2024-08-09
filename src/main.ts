@@ -1,5 +1,5 @@
 import { NestFactory } from '@nestjs/core';
-import fs from 'fs';
+import * as fs from 'node:fs';
 import { AppModule } from './server/modules/main/app.module';
 
 async function bootstrap() {
